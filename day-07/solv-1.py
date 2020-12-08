@@ -13,7 +13,7 @@ nested_pat = re.compile(r"^(\S+ \S+) bags contain(?: \d+ (\S+ \S+) bags?[.,])?(?
 
 parents: Dict[str, Set[str]] = {}
 
-def get_possible_parents(parents: Dict[str, Set[str]], child: str, possible_parents: Set[str] = set()) -> possible_parents: Set[str]:
+def get_possible_parents(parents: Dict[str, Set[str]], child: str, possible_parents: Set[str] = set()) -> Set[str]:
     new_possible_parents = parents.get(child, set()) - possible_parents
     for new_possible_parent in new_possible_parents:
         possible_parents.add(new_possible_parent)
