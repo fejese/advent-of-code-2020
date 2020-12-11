@@ -2,11 +2,9 @@
 
 from enum import Enum
 from typing import List
-from pprint import pprint
 
 
 # INPUT = "test-input"
-# INPUT = "test-input-2"
 INPUT = "input"
 
 class Seat(Enum):
@@ -65,7 +63,6 @@ def step(grid: List[List[Seat]]) -> List[List[Seat]]:
                 new_grid[x][y] = Seat.TAKEN if taken_adjacent == 0 else Seat.EMPTY
             else:
                 new_grid[x][y] = Seat.EMPTY if taken_adjacent >= 4 else Seat.TAKEN
-            # print(x, y, grid[x][y], new_grid[x][y], adjacent, taken_adjacent)
 
     return new_grid
 
@@ -86,9 +83,6 @@ steps = 0
 while True:
     new_grid = step(grid)
     steps += 1
-    # if steps == 2:
-    #     pprint(new_grid)
-    #     break
     if new_grid == grid:
         print(f"Grid is same after step #{steps} as before")
         break
