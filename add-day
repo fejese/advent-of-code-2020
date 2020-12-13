@@ -15,11 +15,10 @@ for solv in "$dir"/solv-{1,2}.py; do
     cat > $solv <<PY
 #!/usr/bin/env python3
 
-INPUT = "test-input"
-# INPUT = "test-input-2"
-# INPUT = "input"
+INPUT_FILE_NAME: str = "test-input"
+# INPUT_FILE_NAME: str = "input"
 
-with open(INPUT, "r") as f:
+with open(INPUT_FILE_NAME, "r") as input_file:
     pass
 PY
     chmod +x "$solv"
@@ -30,8 +29,3 @@ cat > "$dir/input"
 
 echo "Test input?"
 cat > "$dir/test-input"
-
-echo "Test input 2?"
-while read line; do
-    echo $line >> "$dir/test-input-2"
-done
